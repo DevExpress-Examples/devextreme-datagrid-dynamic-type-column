@@ -13,15 +13,6 @@ DataGrid's column data type is specified in the dataType property. If this prope
 
 - **jQuery**
     - [index.js](jQuery/src/index.js)
-- **Angular**
-    - [app.component.html](Angular/src/app/app.component.html)
-    - [app.component.ts](Angular/src/app/app.component.ts)
-- **Vue**
-    - [Home.vue](Vue/src/components/HomeContent.vue)
-- **React**
-    - [App.tsx](React/src/App.tsx)
-- **NetCore**    
-    - [Index.cshtml](ASP.NET%20Core/Views/Home/Index.cshtml)
 
 ## Implementation Details
 
