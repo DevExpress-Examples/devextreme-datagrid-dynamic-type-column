@@ -3,11 +3,14 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1156931)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# DataGrid - How to handle different value types with editCellTemplate for the same column
+
+# DataGrid for DevExtreme - How to handle different value types with editCellTemplate for the same column
 
 This example describes a typical usage scenario where users want to have a dynamic column. For instance a column must handle strings/numbers/dates etc.
 
 DataGrid's column data type is specified in the dataType property. If this property is not set it is auto-predicted based on the first row. So, this causes an issue for most customers where their input data changes to a different data type (e.g., input is a string, but it gets cast to a date/number).
+
+<div align="center"><img alt=" DataGrid for DevExtreme - How to handle different value types with editCellTemplate for the same column" src="datagrid-dynamic-type-column.png" /></div>
 
 ## Files to Review
 
