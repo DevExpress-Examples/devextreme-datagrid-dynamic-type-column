@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import DynamicDataGrid from "./components/DynamicDataGrid.vue";
 </script>
 
 <template>
     <div class="main">
-        <RouterView />
+        <DynamicDataGrid />
     </div>
 </template>
