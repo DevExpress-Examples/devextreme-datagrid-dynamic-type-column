@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import DynamicDataGrid from "./components/DynamicDataGrid.vue";
+import DynamicDataGrid from "./components/DynamicDataGrid/DynamicDataGrid.vue";
 </script>
 
 <template>
-    <div class="main">
-        <DynamicDataGrid />
-    </div>
+  <div class="main">
+    <DynamicDataGrid />
+  </div>
 </template>

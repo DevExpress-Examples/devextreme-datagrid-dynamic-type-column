@@ -1,19 +1,19 @@
-interface MyCustomTypeProps {
-  ID?: number;
-  Name?: string;
-}
-
-export class MyCustomType {
+export type MyCustomType = {
   ID: number;
   Name: string;
+};
 
-  constructor(props?: MyCustomTypeProps) {
-    this.ID = props?.ID || 0;
-    this.Name = props?.Name || "John Doe";
-  }
-}
+export type DynamicType = string | number | Date | boolean | MyCustomType;
 
-const myDropdownData: MyCustomTypeProps[] = [
+export type GridDataModel = {
+  ID: number;
+  DynamicValue: DynamicType;
+  Type: string;
+};
+
+const typeList = ["String", "Number", "Date", "Boolean", "MyCustomType"];
+
+const myDropdownData: MyCustomType[] = [
   {
     ID: 0,
     Name: "John Doe",
@@ -23,13 +23,6 @@ const myDropdownData: MyCustomTypeProps[] = [
     Name: "Jane Smith",
   },
 ];
-
-type DynamicType = string | number | Date | boolean | MyCustomType;
-export type GridDataModel = {
-  ID: number;
-  DynamicValue: DynamicType;
-  Type: String;
-}
 
 const sampleData: GridDataModel[] = [
   {
@@ -54,16 +47,32 @@ const sampleData: GridDataModel[] = [
   },
   {
     ID: 5,
-    DynamicValue: new MyCustomType(),
+    DynamicValue: {
+      ID: 1,
+      Name: "Jane Smith"
+    },
+
     Type: "MyCustomType",
   },
 ];
+
+const defaultValue = "default string";
+const defaultType = "String";
 
 export default {
   getMyDropdownData() {
     return myDropdownData;
   },
-  getSampleData(): GridDataModel[]{
+  getSampleData(): GridDataModel[] {
     return sampleData;
-  }
+  },
+  getTypeList(): string[] {
+    return typeList;
+  },
+  getDefaultValue(): string {
+    return defaultValue;
+  },
+  getDefaultType(): string {
+    return defaultType;
+  },
 };
