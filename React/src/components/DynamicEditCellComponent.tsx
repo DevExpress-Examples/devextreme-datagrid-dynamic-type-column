@@ -12,7 +12,7 @@ import { ValueChangedEvent as CheckValueChanged } from "devextreme/ui/check_box"
 import { ValueChangedEvent as SelectValueChanged } from "devextreme/ui/select_box";
 
 import DataSource from "devextreme/data/data_source";
-import service from "../data";
+import service, { SampleItem } from "../data";
 import { useCallback } from "react";
 import { ColumnEditCellTemplateData } from "devextreme/ui/data_grid";
 
@@ -24,10 +24,8 @@ const dataSource = new DataSource({
     }
 });
 
-function DynamicEditCellComponent({ data }: { data: ColumnEditCellTemplateData }){
-    console.log(data);
+function DynamicEditCellComponent({ data }: { data: ColumnEditCellTemplateData<SampleItem, Number> }){
     const { data: rowData, setValue, value } = data;
-
 
     const simpleValueChanged = useCallback((e:NumberValueChanged|TextValueChanged|DateValueChanged|CheckValueChanged) => {
         setValue(e.value);
@@ -38,7 +36,7 @@ function DynamicEditCellComponent({ data }: { data: ColumnEditCellTemplateData }
         setValue(newItem);
     }, [setValue]);
 
-    switch (rowData.Type) {
+    switch (rowData?.Type) {
         case "Number":
             return(
             <div>
