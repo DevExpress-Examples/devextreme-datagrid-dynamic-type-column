@@ -7,7 +7,7 @@ export type DynamicType = string | number | Date | boolean | MyCustomType;
 
 export type GridDataModel = {
   ID: number;
-  DynamicValue: DynamicType;
+  DynamicValue: DynamicType | null;
   Type: string;
 };
 
