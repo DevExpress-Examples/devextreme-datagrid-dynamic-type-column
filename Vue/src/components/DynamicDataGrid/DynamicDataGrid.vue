@@ -48,7 +48,6 @@ function handleInitNewRow(e: InitNewRowEvent) {
   e.data.DynamicValue = Service.getDefaultValue();
 }
 function setCellValue(newData: GridDataModel, type: string) {
-  console.log("called");
   newData.Type = type;
   newData.DynamicValue = null;
 }
