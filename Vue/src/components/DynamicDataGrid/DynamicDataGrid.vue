@@ -14,6 +14,8 @@ import type {
   MyCustomType,
   DynamicType,
 } from "../../services/data";
+import type { InitNewRowEvent } from "devextreme/ui/data_grid";
+
 import DynamicEditComponent from "./templates/DynamicEditComponent.vue";
 
 const sampleData = computed<GridDataModel[]>(() => {
@@ -27,7 +29,7 @@ function getDynamicDisplayText(rowData: GridDataModel): string {
   const valueType = rowData.Type,
     value = rowData.DynamicValue;
   const formatterMap: {
-    [key: string]: DynamicType;
+    [key: string]: DynamicType | undefined | null;
   } = {
     _default: "unknown data type",
     String: value,
@@ -38,15 +40,14 @@ function getDynamicDisplayText(rowData: GridDataModel): string {
   };
   return formatterMap[valueType || "_default"] as string;
 }
-function handleInitNewRow(e: any) {
+function handleInitNewRow(e: InitNewRowEvent) {
   const newKey =
     Math.max(...Service.getSampleData().map((item) => item.ID)) + 1;
   e.data.ID = newKey;
   e.data.Type = Service.getDefaultType();
   e.data.DynamicValue = Service.getDefaultValue();
 }
-function setCellValue(newData: any, type: string) {
-  console.log("called");
+function setCellValue(newData: GridDataModel, type: string) {
   newData.Type = type;
   newData.DynamicValue = null;
 }
