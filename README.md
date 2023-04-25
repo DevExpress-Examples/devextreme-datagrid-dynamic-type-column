@@ -16,7 +16,8 @@ DataGrid's column data type is specified in the dataType property. If this prope
 - **jQuery**
     - [index.js](jQuery/src/index.js)
 - **Vue**
-    - [Home.vue](Vue/src/components/HomeContent.vue)
+    - [DynamicDataGrid.vue](Vue/src/components/DynamicDataGrid/DynamicDataGrid.vue)
+    - [DynamicEditComponent.vue](Vue/src/components/DynamicDataGrid/templates/DynamicEditComponent.vue)
 
 ## Implementation Details
 
