@@ -1,0 +1,26 @@
+<dx-data-grid
+  [dataSource]="sampleData"
+  keyExpr="ID"
+  [showBorders]="true"
+  (onInitNewRow)="onInitNewRow($event)"
+>
+  <dxo-editing
+    mode="form"
+    [allowUpdating]="true"
+    [allowAdding]="true"
+  ></dxo-editing>
+  <dxi-column dataField="ID" [allowEditing]="false"></dxi-column>
+  <dxi-column
+    dataField="DynamicValue"
+    dataType="object"
+    [calculateDisplayValue]="getDynamicDisplayText"
+    editCellTemplate="editCellTemplate"
+  >
+  </dxi-column>
+  <dxi-column dataField="Type" [setCellValue]="setCellValue">
+    <dxo-lookup [dataSource]="typeList"></dxo-lookup>
+  </dxi-column>
+  <div *dxTemplate="let data of 'editCellTemplate'">
+    <dynamic-edit-component [cellInfo]="data"></dynamic-edit-component>
+  </div>
+</dx-data-grid>

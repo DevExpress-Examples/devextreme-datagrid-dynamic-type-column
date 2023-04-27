@@ -1,0 +1,64 @@
+<div
+  *ngIf="
+    cellInfo?.data?.Type == 'String';
+    then textBoxTemplate;
+    else numberBoxTemplate
+  "
+></div>
+
+<ng-template #textBoxTemplate>
+  <div *ngIf="cellInfo.data?.Type == 'String'; else numberBoxTemplate">
+    <dx-text-box
+      [value]="cellInfo.data?.DynamicValue"
+      (onValueChanged)="handleValueChanged($event)"
+    >
+    </dx-text-box>
+  </div>
+</ng-template>
+
+<ng-template #numberBoxTemplate>
+  <div *ngIf="cellInfo.data?.Type == 'Number'; else dateBoxTemplate">
+    <dx-number-box
+      [value]="cellInfo.data?.DynamicValue"
+      (onValueChanged)="handleValueChanged($event)"
+    >
+    </dx-number-box>
+  </div>
+</ng-template>
+
+<ng-template #dateBoxTemplate>
+  <div *ngIf="cellInfo.data?.Type == 'Date'; else checkBoxTemplate">
+    <dx-date-box
+      [value]="cellInfo.data?.DynamicValue"
+      (onValueChanged)="handleValueChanged($event)"
+    >
+    </dx-date-box>
+  </div>
+</ng-template>
+
+<ng-template #checkBoxTemplate>
+  <div *ngIf="cellInfo.data?.Type == 'Boolean'; else myCustomTemplate">
+    <dx-check-box
+      [value]="cellInfo.data?.DynamicValue"
+      (onValueChanged)="handleValueChanged($event)"
+    >
+    </dx-check-box>
+  </div>
+</ng-template>
+
+<ng-template #myCustomTemplate>
+  <div *ngIf="cellInfo.data?.Type == 'MyCustomType'; else unknownTemplate">
+    <dx-select-box
+      [dataSource]="myDropdownData"
+      valueExpr="ID"
+      displayExpr="Name"
+      [value]="cellInfo.value?.ID"
+      (onValueChanged)="handleValueChanged($event)"
+    >
+    </dx-select-box>
+  </div>
+</ng-template>
+
+<ng-template #unknownTemplate>
+  <span>Unknown type!</span>
+</ng-template>
