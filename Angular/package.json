@@ -1,5 +1,5 @@
 {
-  "name": "datagrid-dynamic-type",
+  "name": "devextreme-datagrid-dynamic-type-column",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
