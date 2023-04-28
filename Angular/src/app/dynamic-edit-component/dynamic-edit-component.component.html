@@ -1,0 +1,62 @@
+<div
+  [ngTemplateOutlet]="
+    cellInfo.data.Type == 'String'
+      ? textBoxTemplate
+      : cellInfo.data.Type == 'Number'
+      ? numberBoxTemplate
+      : cellInfo.data.Type == 'Date'
+      ? dateBoxTemplate
+      : cellInfo.data.Type == 'Boolean'
+      ? checkBoxTemplate
+      : cellInfo.data.Type == 'MyCustomType'
+      ? myCustomTemplate
+      : unknownTemplate
+  "
+></div>
+
+<ng-template #textBoxTemplate>
+  <dx-text-box
+    [value]="cellInfo.data?.DynamicValue"
+    (onValueChanged)="handleValueChanged($event)"
+  >
+  </dx-text-box>
+</ng-template>
+
+<ng-template #numberBoxTemplate>
+  <dx-number-box
+    [value]="cellInfo.data?.DynamicValue"
+    (onValueChanged)="handleValueChanged($event)"
+  >
+  </dx-number-box>
+</ng-template>
+
+<ng-template #dateBoxTemplate>
+  <dx-date-box
+    [value]="cellInfo.data?.DynamicValue"
+    (onValueChanged)="handleValueChanged($event)"
+  >
+  </dx-date-box>
+</ng-template>
+
+<ng-template #checkBoxTemplate>
+  <dx-check-box
+    [value]="cellInfo.data?.DynamicValue"
+    (onValueChanged)="handleValueChanged($event)"
+  >
+  </dx-check-box>
+</ng-template>
+
+<ng-template #myCustomTemplate>
+  <dx-select-box
+    [dataSource]="myDropdownData"
+    valueExpr="ID"
+    displayExpr="Name"
+    [value]="cellInfo.value?.ID"
+    (onValueChanged)="handleValueChanged($event)"
+  >
+  </dx-select-box>
+</ng-template>
+
+<ng-template #unknownTemplate>
+  <span>Unknown type!</span>
+</ng-template>

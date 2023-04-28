@@ -1,7 +1,9 @@
 <!-- default badges list -->
+
 ![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/620850607/22.2.5%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1156931)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+
 <!-- default badges end -->
 
 # DataGrid for DevExtreme - How to handle different value types with editCellTemplate for the same column
@@ -15,14 +17,19 @@ DataGrid's column data type is specified in the dataType property. If this prope
 ## Files to Review
 
 - **jQuery**
-    - [index.js](jQuery/src/index.js)
+  - [index.js](jQuery/src/index.js)
+- **Angular**
+  - [app.component.html](Angular/src/app/app.component.html)
+  - [app.component.ts](Angular/src/app/app.component.ts)
+  - [dynamic-edit-component.component.html](Angular/src/app/dynamic-edit-component/dynamic-edit-component.component.html)
+  - [dynamic-edit-component.component.ts](Angular/src/app/dynamic-edit-component/dynamic-edit-component.component.ts)
 - **Vue**
-    - [DynamicDataGrid.vue](Vue/src/components/DynamicDataGrid/DynamicDataGrid.vue)
-    - [DynamicEditComponent.vue](Vue/src/components/DynamicDataGrid/templates/DynamicEditComponent.vue)
+  - [DynamicDataGrid.vue](Vue/src/components/DynamicDataGrid/DynamicDataGrid.vue)
+  - [DynamicEditComponent.vue](Vue/src/components/DynamicDataGrid/templates/DynamicEditComponent.vue)
 
 ## Implementation Details
 
-Set your dynamic column's dataType property to "object". Then, store the data type in a data field, specify editCellTemplate and check the data.Type field's value to render the related editor. Finally, use the setCellValue callback of the Type column to update your dynamic column and rerender editCellTemplate. 
+Set your dynamic column's dataType property to "object". Then, store the data type in a data field, specify editCellTemplate and check the data.Type field's value to render the related editor. Finally, use the setCellValue callback of the Type column to update your dynamic column and rerender editCellTemplate.
 
 ## Documentation
 
