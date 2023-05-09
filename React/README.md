@@ -1,4 +1,4 @@
-# React
+# DataGrid for DevExtreme (React) - How to handle different value types with editCellTemplate for the same column
 
 Take a look at the following files of this example to see the required code: 
 
