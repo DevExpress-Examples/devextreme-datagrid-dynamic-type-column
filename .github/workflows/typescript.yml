@@ -4,11 +4,7 @@ concurrency:
   group: wf-${{github.event.pull_request.number || github.sha}}-${{github.workflow}}
   cancel-in-progress: true
 
-on:
-  pull_request:
-  push:
-    branches:
-      - "[0-9][0-9].[0-9].[0-9]*"
+on: [pull_request, push]
 
 jobs:
   Angular:
