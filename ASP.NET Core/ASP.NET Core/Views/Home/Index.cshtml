@@ -1,0 +1,54 @@
+@using ASP_NET_Core.Models
+
+<h2>Home</h2>
+
+@(Html.DevExtreme().DataGrid<Item>()
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc()
+        .Controller("SampleData")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .Key("ID"))
+    .Columns(columns => {
+        columns.AddFor(m => m.ID).AllowEditing(false);
+        columns.AddFor(m => m.DynamicValue)
+          .DataType(GridColumnDataType.Object)
+          .EditCellTemplate(@<text>
+              <% switch (data.Type) { case "Number": %>
+               @(await Html.PartialAsync("NumberBox"))
+               <% break; case "String": %>
+               @(await Html.PartialAsync("TextBox"))
+               <% break; case "Date": %>
+               @(await Html.PartialAsync("DateBox"))
+               <% break; case "Boolean": %>
+               @(await Html.PartialAsync("CheckBox"))
+               <% break; case "CustomType": %>
+               @(await Html.PartialAsync("CustomView"))
+              <% break; }%>
+          </text>)
+          .CellTemplate(@<text>
+              <% if(data.Type == "CustomType") { %>
+              <%- data.DynamicValue.Name %>
+              <% } else if(data.Type == "Date"){ %>
+              <%- (new Date(data.DynamicValue)).toLocaleDateString() %>
+              <% } else { %>
+              <%- data.DynamicValue %>
+              <% } %>
+          </text>);
+        columns.AddFor(m => m.Type)
+        .SetCellValue("function(newData, type){newData.Type = type; newData.DynamicValue = null}")
+        .Lookup(l => {
+            l.DataSource("typeList");
+        });
+
+    })
+    .Editing(e => {
+        e.AllowUpdating(true);
+        e.AllowAdding(true);
+        e.Mode(GridEditMode.Form);
+    })
+)
+<script>
+    const typeList = ["String", "Number", "Date", "Boolean", "CustomType"];
+</script>

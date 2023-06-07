@@ -1,0 +1,4 @@
+﻿@(Html.DevExtreme().CheckBox()
+    .Value(new JS("value"))
+    .OnValueChanged("function(args) {setValue(args.value)}")
+)

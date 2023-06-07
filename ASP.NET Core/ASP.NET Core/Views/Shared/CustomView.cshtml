@@ -1,0 +1,18 @@
+﻿@(Html.DevExtreme().SelectBox()
+     .DataSource(d => d.Mvc()
+        .Controller("SampleData")
+        .LoadAction("PersonsGet")
+        .Key("ID"))
+    .ValueExpr("ID")
+    .DisplayExpr("Name")
+    .Value(new JS("value? value.ID : undefined"))
+    .Option("setValue", new JS("setValue"))
+    .OnValueChanged("e => onValueChanged(e)")
+)
+<script>
+    function onValueChanged(args) {
+        let setValue = args.component.option("setValue");
+        let value = args.component.option("selectedItem");
+        setValue(value);
+    }
+</script>
