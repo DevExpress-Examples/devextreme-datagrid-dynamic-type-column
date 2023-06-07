@@ -18,7 +18,7 @@ namespace ASP_NET_Core.Controllers {
     public class SampleDataController : Controller {
 
 
-        private static void ReturnParsedValues(string values, Item item)
+        private static void ModifyEnteredValues(string values, Item item)
         {
             var parsedValues = JObject.Parse(values);
 
@@ -46,8 +46,8 @@ namespace ASP_NET_Core.Controllers {
         public IActionResult Put(int key, string values) {
 
             var item = SampleData.Items.First(e => e.ID == key);
- 
-            ReturnParsedValues(values, item);
+
+            ModifyEnteredValues(values, item);
 
             return Ok(item);
         }
@@ -60,7 +60,7 @@ namespace ASP_NET_Core.Controllers {
             var id = SampleData.Items.Select(d => d.ID).Max() + 1;
             newItem.ID = id;
 
-            ReturnParsedValues(values, newItem);
+            ModifyEnteredValues(values, newItem);
 
             SampleData.Items.Add(newItem);
 
