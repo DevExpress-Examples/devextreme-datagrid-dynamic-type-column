@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { DynamicType, MyCustomType, Service } from '../app.service';
 import dxDataGrid, {
   ColumnEditCellTemplateData,
 } from 'devextreme/ui/data_grid';
+import { DynamicType, MyCustomType, Service } from '../app.service';
 
 @Component({
   selector: 'dynamic-edit-component',
@@ -11,13 +11,14 @@ import dxDataGrid, {
 })
 export class DynamicEditComponentComponent {
   @Input() cellInfo: ColumnEditCellTemplateData;
+
   myDropdownData: MyCustomType[];
 
-  constructor(private service: Service) {
-    this.myDropdownData = this.service.getMyDropdownData();
+  constructor(service: Service) {
+    this.myDropdownData = service.getMyDropdownData();
   }
 
-  handleValueChanged(e: { value: DynamicType; component: dxDataGrid }) {
+  handleValueChanged(e: { value: DynamicType; component: dxDataGrid }): void {
     let newValue: DynamicType | MyCustomType['ID'] | unknown = e.value;
     if (this.cellInfo.data.Type == 'MyCustomType') {
       newValue = e.component.option('selectedItem');
