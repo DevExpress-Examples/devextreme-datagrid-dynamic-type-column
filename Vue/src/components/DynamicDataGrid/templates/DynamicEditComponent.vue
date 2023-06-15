@@ -14,7 +14,7 @@ import type { ValueChangedEvent as CheckValueChanged } from "devextreme/ui/check
 import type { ValueChangedEvent as SelectValueChanged } from "devextreme/ui/select_box";
 
 import Service from "../../../services/data";
-import type { MyCustomType, DynamicType } from "../../../services/data";
+import type { MyCustomType } from "../../../services/data";
 
 const props = defineProps({
   cellInfo: Object,
