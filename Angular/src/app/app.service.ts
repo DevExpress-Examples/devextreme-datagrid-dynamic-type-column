@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 
-export type MyCustomType = {
+export interface MyCustomType {
   ID: number;
   Name: string;
-};
+  toString: () => string;
+}
 
 export type DynamicType = string | number | Date | boolean | MyCustomType;
 
-export type GridDataModel = {
+export interface GridDataModel {
   ID: number;
   DynamicValue: DynamicType;
   Type: string;
-};
+}
 
 const typeList = ['String', 'Number', 'Date', 'Boolean', 'MyCustomType'];
 
@@ -63,18 +64,22 @@ const defaultType = 'String';
 
 @Injectable()
 export class Service {
-  getMyDropdownData() {
+  getMyDropdownData(): MyCustomType[] {
     return myDropdownData;
   }
+
   getSampleData(): GridDataModel[] {
     return sampleData;
   }
+
   getTypeList(): string[] {
     return typeList;
   }
+
   getDefaultValue(): string {
     return defaultValue;
   }
+
   getDefaultType(): string {
     return defaultType;
   }
