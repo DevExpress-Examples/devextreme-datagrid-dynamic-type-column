@@ -11,7 +11,19 @@ module.exports = {
     parserOptions: {
       project: './tsconfig.json',
       'createDefaultProgram': true,
-      'ecmaVersion': 6,
+      ecmaVersion: 2022,
+      sourceType: 'module',
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "import/no-extraneous-dependencies": ["error", {
+        "devDependencies": [
+          "**/vitest.config.ts", // allow vitest in config file
+          "**/vite.config.ts", // allow vite in config file
+          "**/*.test.tsx",      // allow test files if needed
+          "**/setupTests.ts", // allow setup tests file
+        ]
+      }]
     },
     globals: {
       System: false,
@@ -22,15 +34,11 @@ module.exports = {
       react: {
         createClass: 'createReactClass',
         'pragma': 'React',
-        version: '16.2',
-        flowVersion: '0.53',
+        version: '18.2',
       },
       propWrapperFunctions: [
         'forbidExtraProps',
       ],
     },
-  }, {
-    files: ['*.test.tsx'],
-    extends: ['devextreme/jest']
   }]
 };
