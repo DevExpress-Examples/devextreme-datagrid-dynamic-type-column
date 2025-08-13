@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { DataRowTemplateData } from 'devextreme/ui/data_grid';
+import { InitNewRowEvent } from 'devextreme/ui/data_grid';
 import {
-  GridDataModel,
-  DynamicType,
-  MyCustomType,
-  Service,
+  GridDataModel, DynamicType, MyCustomType, Service,
 } from './app.service';
 
 @Component({
@@ -25,7 +22,7 @@ export class AppComponent {
     this.typeList = service.getTypeList();
   }
 
-  onInitNewRow(e: DataRowTemplateData): void {
+  onInitNewRow(e: InitNewRowEvent): void {
     const newKey = Math.max(...this.sampleData.map((item: GridDataModel) => item.ID)) + 1;
 
     e.data.ID = newKey;

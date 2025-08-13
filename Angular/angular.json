@@ -13,6 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "devextreme-quill",
+              "jszip",
+              "devexpress-diagram",
+              "devexpress-gantt"
+            ],
             "outputPath": "dist/datagrid_dynamic_type",
             "index": "src/index.html",
             "main": "src/main.ts",
