@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Angular:build:production"
+              "buildTarget": "datagrid_dynamic_type:build:production"
             },
             "development": {
-              "buildTarget": "Angular:build:development"
+              "buildTarget": "datagrid_dynamic_type:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Angular:build"
+            "buildTarget": "datagrid_dynamic_type:build"
           }
         },
         "test": {
