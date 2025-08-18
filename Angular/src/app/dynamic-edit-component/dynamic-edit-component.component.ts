@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
-import  {
-  ColumnEditCellTemplateData,
-} from 'devextreme/ui/data_grid';
-import { DynamicType, MyCustomType, Service } from '../app.service';
+import { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
 import dxTextBox from 'devextreme/ui/text_box';
 import dxNumberBox from 'devextreme/ui/number_box';
 import dxDateBox from 'devextreme/ui/date_box';
 import dxCheckBox from 'devextreme/ui/check_box';
 import dxSelectBox from 'devextreme/ui/select_box';
+import { DynamicType, MyCustomType, Service } from '../app.service';
 
 type EditorComponent =
   | dxTextBox
@@ -30,7 +28,7 @@ export class DynamicEditComponentComponent {
     this.myDropdownData = service.getMyDropdownData();
   }
 
-  handleValueChanged(e: { value?: DynamicType; component: EditorComponent }): void {  
+  handleValueChanged(e: { value?: DynamicType; component: EditorComponent }): void {
     let newValue: DynamicType | MyCustomType['ID'] | unknown = e.value;
     if (this.cellInfo.data.Type == 'MyCustomType') {
       newValue = (e.component as dxSelectBox).option('selectedItem');
