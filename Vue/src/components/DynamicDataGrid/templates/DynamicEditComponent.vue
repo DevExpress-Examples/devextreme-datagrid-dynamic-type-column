@@ -1,23 +1,25 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import DxTextBox from "devextreme-vue/text-box";
-import DxNumberBox from "devextreme-vue/number-box";
-import DxDateBox from "devextreme-vue/date-box";
-import DxCheckBox from "devextreme-vue/check-box";
-import DxSelectBox from "devextreme-vue/select-box";
+import { computed } from 'vue';
+import DxTextBox from 'devextreme-vue/text-box';
+import DxNumberBox from 'devextreme-vue/number-box';
+import DxDateBox from 'devextreme-vue/date-box';
+import DxCheckBox from 'devextreme-vue/check-box';
+import DxSelectBox from 'devextreme-vue/select-box';
 
-import type SelectBox from "devextreme/ui/select_box";
-import type { ValueChangedEvent as NumberValueChanged } from "devextreme/ui/number_box";
-import type { ValueChangedEvent as TextValueChanged } from "devextreme/ui/text_box";
-import type { ValueChangedEvent as DateValueChanged } from "devextreme/ui/date_box";
-import type { ValueChangedEvent as CheckValueChanged } from "devextreme/ui/check_box";
-import type { ValueChangedEvent as SelectValueChanged } from "devextreme/ui/select_box";
+import type SelectBox from 'devextreme/ui/select_box';
+import type { ValueChangedEvent as NumberValueChanged } from 'devextreme/ui/number_box';
+import type { ValueChangedEvent as TextValueChanged } from 'devextreme/ui/text_box';
+import type { ValueChangedEvent as DateValueChanged } from 'devextreme/ui/date_box';
+import type { ValueChangedEvent as CheckValueChanged } from 'devextreme/ui/check_box';
+import type { ValueChangedEvent as SelectValueChanged } from 'devextreme/ui/select_box';
 
-import Service from "../../../services/data";
-import type { MyCustomType } from "../../../services/data";
+import Service from '../../../services/data';
+import type { MyCustomType } from '../../../services/data';
 
-const props = defineProps({
-  cellInfo: Object,
+const props = withDefaults(defineProps<{
+  cellInfo?: Record<string, any>;
+}>(), {
+  cellInfo: () => ({}),
 });
 
 const myDropdownData = computed<MyCustomType[]>(() => {
@@ -31,10 +33,10 @@ function handleValueChanged(
     | CheckValueChanged
     | SelectValueChanged
 ) {
-  if (props.cellInfo?.data.Type == "MyCustomType") {
-    const newValue = (e.component as SelectBox).option("selectedItem");
+  if (props.cellInfo?.data.Type == 'MyCustomType') {
+    const newValue = (e.component as SelectBox).option('selectedItem');
     props.cellInfo?.setValue(newValue);
-  } else props.cellInfo?.setValue(e.value);
+  } else { props.cellInfo?.setValue(e.value); }
 }
 </script>
 <template>

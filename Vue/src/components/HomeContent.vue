@@ -4,8 +4,10 @@ import { computed, ref } from 'vue';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 import DxButton from 'devextreme-vue/button';
 
-const props = defineProps({
-  text: String,
+const props = withDefaults(defineProps<{
+  text?: string;
+}>(), {
+  text: 'Default',
 });
 const count = ref(0);
 const buttonText = computed<string>(

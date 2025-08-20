@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue';
 
-import "devextreme/dist/css/dx.material.blue.light.compact.css";
+import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 import DxDataGrid, {
   DxColumn,
   DxEditing,
   DxLookup,
-} from "devextreme-vue/data-grid";
+} from 'devextreme-vue/data-grid';
 
-import Service from "../../services/data";
+import Service from '../../services/data';
 import type {
   GridDataModel,
   MyCustomType,
   DynamicType,
-} from "../../services/data";
-import type { InitNewRowEvent } from "devextreme/ui/data_grid";
+} from '../../services/data';
+import type { InitNewRowEvent } from 'devextreme/ui/data_grid';
 
-import DynamicEditComponent from "./templates/DynamicEditComponent.vue";
+import DynamicEditComponent from './templates/DynamicEditComponent.vue';
 
 const sampleData = computed<GridDataModel[]>(() => {
   return Service.getSampleData();
@@ -31,14 +31,14 @@ function getDynamicDisplayText(rowData: GridDataModel): string {
   const formatterMap: {
     [key: string]: DynamicType | undefined | null;
   } = {
-    _default: "unknown data type",
+    _default: 'unknown data type',
     String: value,
     Number: value?.toString(),
-    Boolean: value?.toString() || "null",
+    Boolean: value?.toString() || 'null',
     Date: new Date(value as string).toLocaleDateString(),
-    MyCustomType: value ? (value as MyCustomType).Name : "",
+    MyCustomType: value ? (value as MyCustomType).Name : '',
   };
-  return formatterMap[valueType || "_default"] as string;
+  return formatterMap[valueType || '_default'] as string;
 }
 function handleInitNewRow(e: InitNewRowEvent) {
   const newKey =
@@ -61,16 +61,26 @@ function setCellValue(newData: GridDataModel, type: string) {
       :show-borders="true"
       @init-new-row="handleInitNewRow"
     >
-      <DxEditing mode="form" :allow-updating="true" :allow-adding="true" />
-      <DxColumn data-field="ID" :allow-editing="false" />
+      <DxEditing
+        mode="form"
+        :allow-updating="true"
+        :allow-adding="true"
+      />
+      <DxColumn
+        data-field="ID"
+        :allow-editing="false"
+      />
       <DxColumn
         data-field="DynamicValue"
         data-type="object"
         :calculate-display-value="getDynamicDisplayText"
         edit-cell-template="edit-cell-template"
       />
-      <DxColumn data-field="Type" :set-cell-value="setCellValue">
-        <DxLookup :data-source="typeList" />
+      <DxColumn
+        data-field="Type"
+        :set-cell-value="setCellValue"
+      >
+        <DxLookup :data-source="typeList"/>
       </DxColumn>
       <template #edit-cell-template="{ data }">
         <DynamicEditComponent :cell-info="data"/>

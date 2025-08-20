@@ -11,53 +11,53 @@ export type GridDataModel = {
   Type: string;
 };
 
-const typeList = ["String", "Number", "Date", "Boolean", "MyCustomType"];
+const typeList = ['String', 'Number', 'Date', 'Boolean', 'MyCustomType'];
 
 const myDropdownData: MyCustomType[] = [
   {
     ID: 0,
-    Name: "John Doe",
+    Name: 'John Doe',
   },
   {
     ID: 1,
-    Name: "Jane Smith",
+    Name: 'Jane Smith',
   },
 ];
 
 const sampleData: GridDataModel[] = [
   {
     ID: 1,
-    DynamicValue: "Sample String",
-    Type: "String",
+    DynamicValue: 'Sample String',
+    Type: 'String',
   },
   {
     ID: 2,
     DynamicValue: 42,
-    Type: "Number",
+    Type: 'Number',
   },
   {
     ID: 3,
     DynamicValue: new Date(),
-    Type: "Date",
+    Type: 'Date',
   },
   {
     ID: 4,
     DynamicValue: true,
-    Type: "Boolean",
+    Type: 'Boolean',
   },
   {
     ID: 5,
     DynamicValue: {
       ID: 1,
-      Name: "Jane Smith"
+      Name: 'Jane Smith'
     },
 
-    Type: "MyCustomType",
+    Type: 'MyCustomType',
   },
 ];
 
-const defaultValue = "default string";
-const defaultType = "String";
+const defaultValue = 'default string';
+const defaultType = 'String';
 
 export default {
   getMyDropdownData() {
