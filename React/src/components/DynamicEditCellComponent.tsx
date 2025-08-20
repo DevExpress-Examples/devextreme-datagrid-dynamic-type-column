@@ -4,17 +4,17 @@ import DateBox from 'devextreme-react/date-box';
 import CheckBox from 'devextreme-react/check-box';
 import SelectBox from 'devextreme-react/select-box';
 
-import { ValueChangedEvent as NumberValueChanged } from 'devextreme/ui/number_box';
-import { ValueChangedEvent as TextValueChanged } from 'devextreme/ui/text_box';
-import { ValueChangedEvent as DateValueChanged } from 'devextreme/ui/date_box';
-import { ValueChangedEvent as CheckValueChanged } from 'devextreme/ui/check_box';
+import type { ValueChangedEvent as NumberValueChanged } from 'devextreme/ui/number_box';
+import type { ValueChangedEvent as TextValueChanged } from 'devextreme/ui/text_box';
+import type { ValueChangedEvent as DateValueChanged } from 'devextreme/ui/date_box';
+import type { ValueChangedEvent as CheckValueChanged } from 'devextreme/ui/check_box';
 
-import { ValueChangedEvent as SelectValueChanged } from 'devextreme/ui/select_box';
+import type { ValueChangedEvent as SelectValueChanged } from 'devextreme/ui/select_box';
 
 import DataSource from 'devextreme/data/data_source';
 import React, { useCallback } from 'react';
-import { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
-import service, { SampleItem } from '../data';
+import type { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
+import service, { type SampleItem } from '../data';
 
 const dataSource = new DataSource({
   store: {
@@ -40,26 +40,26 @@ function DynamicEditCellComponent({ data }: { data: ColumnEditCellTemplateData<S
     case 'Number':
       return (
         <div>
-          <NumberBox value={value} onValueChanged={simpleValueChanged}></NumberBox>
+          <NumberBox defaultValue={value} onValueChanged={simpleValueChanged}></NumberBox>
         </div>
       );
     case 'String':
       return (
         <div>
-          <TextBox value={value} onValueChanged={simpleValueChanged}></TextBox>
+          <TextBox defaultValue={value} onValueChanged={simpleValueChanged}></TextBox>
         </div>
       );
     case 'Date':
       return (
         <div>
-          <DateBox value={value} onValueChanged={simpleValueChanged}></DateBox>
+          <DateBox defaultValue={value} onValueChanged={simpleValueChanged}></DateBox>
         </div>
       );
     case 'Boolean':
       return (
         <div>
           <CheckBox
-            value={value}
+            defaultValue={value}
             onValueChanged={simpleValueChanged}>
           </CheckBox>
         </div>
@@ -68,7 +68,7 @@ function DynamicEditCellComponent({ data }: { data: ColumnEditCellTemplateData<S
       return (
         <div>
           <SelectBox dataSource={dataSource}
-            value={value ? value.ID : undefined}
+            defaultValue={value ? value.ID : undefined}
             onValueChanged={onSelectValueChanged}
             valueExpr='ID'
             displayExpr='Name'>

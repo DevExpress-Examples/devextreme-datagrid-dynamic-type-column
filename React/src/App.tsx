@@ -2,8 +2,8 @@ import './App.css';
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 import React, { useCallback } from 'react';
 import DataGrid, { Editing, Column, Lookup } from 'devextreme-react/data-grid';
-import { InitNewRowEvent } from 'devextreme/ui/data_grid';
-import service, { SampleItem } from './data';
+import type { InitNewRowEvent } from 'devextreme/ui/data_grid';
+import service, { type SampleItem } from './data';
 import DynamicEditCellComponent from './components/DynamicEditCellComponent';
 import CellComponent from './components/CellComponent';
 
@@ -17,7 +17,7 @@ function App(): React.ReactElement {
   }, []);
 
   const onInitNewRow = useCallback((e: InitNewRowEvent<SampleItem, number>): void => {
-    const newKey = Math.max(...service.getData().map((item) => item.ID)) + 1;
+    const newKey = Math.max(...service.getData().map((item) => item.ID as number)) + 1;
     e.data.ID = newKey;
     e.data.Type = 'defaultType';
     e.data.DynamicValue = 'defaultValue';
