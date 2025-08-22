@@ -6,7 +6,7 @@ This project includes:
 - Vue 3.2.45
 - TypeScript 4.7.4
 - Vite for fast development and building
-- DevExtreme Vue 24.2.3
+- DevExtreme Vue 25.1.3
 - Vue Router 4.1.6
 - Vitest for testing
 - ESLint and Prettier for code quality

@@ -59,6 +59,7 @@ const sampleData: GridDataModel[] = [
   },
 ];
 
+let counter = sampleData.length + 1;
 const defaultValue = 'default string';
 const defaultType = 'String';
 
@@ -82,5 +83,9 @@ export class Service {
 
   getDefaultType(): string {
     return defaultType;
+  }
+
+  getNextId(): number {
+    return counter++;
   }
 }

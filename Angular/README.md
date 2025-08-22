@@ -1,6 +1,6 @@
 # Angular DevExtreme Example
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4 and includes DevExtreme Angular components version 24.2.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4 and includes DevExtreme Angular components version 25.1.3.
 
 ## Development server
 

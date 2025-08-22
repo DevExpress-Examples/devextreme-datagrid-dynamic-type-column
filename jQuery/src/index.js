@@ -7,8 +7,7 @@ $(() => {
     dataSource: sampleData,
     keyExpr: 'ID',
     onInitNewRow(e) {
-      const newKey = Math.max(...sampleData.map((item) => item.ID)) + 1;
-      e.data.ID = newKey;
+      e.data.ID = getNextId();
       e.data.Type = defaultType;
       e.data.DynamicValue = defaultValue;
     },

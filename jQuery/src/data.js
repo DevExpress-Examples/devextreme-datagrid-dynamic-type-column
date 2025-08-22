@@ -43,3 +43,11 @@ const sampleData = [
     Type: 'MyCustomType',
   },
 ];
+
+let counter = sampleData.length + 1;
+
+function getNextId() {
+  const id = counter;
+  counter += 1;
+  return id;
+}

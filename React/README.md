@@ -6,7 +6,7 @@ This project includes:
 - React 18.2.0
 - TypeScript 5.8.2
 - Vite for fast development and building
-- DevExtreme React 24.2.3
+- DevExtreme React 25.1.3
 - Vitest for testing
 - ESLint and Stylelint for code quality
 

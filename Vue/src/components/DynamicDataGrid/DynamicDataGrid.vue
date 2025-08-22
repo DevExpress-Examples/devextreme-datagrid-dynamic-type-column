@@ -41,9 +41,7 @@ function getDynamicDisplayText(rowData: GridDataModel): string {
   return formatterMap[valueType || '_default'] as string;
 }
 function handleInitNewRow(e: InitNewRowEvent) {
-  const newKey =
-    Math.max(...Service.getSampleData().map((item) => item.ID)) + 1;
-  e.data.ID = newKey;
+  e.data.ID = Service.getNextId();
   e.data.Type = Service.getDefaultType();
   e.data.DynamicValue = Service.getDefaultValue();
 }

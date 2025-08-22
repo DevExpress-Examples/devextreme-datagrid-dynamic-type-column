@@ -23,9 +23,7 @@ export class AppComponent {
   }
 
   onInitNewRow(e: InitNewRowEvent): void {
-    const newKey = Math.max(...this.sampleData.map((item: GridDataModel) => item.ID)) + 1;
-
-    e.data.ID = newKey;
+    e.data.ID = this.service.getNextId();
     e.data.Type = this.service.getDefaultType();
     e.data.DynamicValue = this.service.getDefaultValue();
   }

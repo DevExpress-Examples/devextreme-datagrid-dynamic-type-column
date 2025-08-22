@@ -11,16 +11,15 @@ const typeList = ['String', 'Number', 'Date', 'Boolean', 'MyCustomType'];
 const ds = service.getData();
 
 function App(): React.ReactElement {
-  const typeCellValue = useCallback((newData: SampleItem, type: String): void => {
+  const typeCellValue = useCallback((newData: SampleItem, type: string): void => {
     newData.Type = type;
     newData.DynamicValue = null;
   }, []);
 
   const onInitNewRow = useCallback((e: InitNewRowEvent<SampleItem, number>): void => {
-    const newKey = Math.max(...service.getData().map((item) => item.ID as number)) + 1;
-    e.data.ID = newKey;
-    e.data.Type = 'defaultType';
-    e.data.DynamicValue = 'defaultValue';
+    e.data.ID = service.getNextId();
+    e.data.Type = service.getDefaultType();
+    e.data.DynamicValue = service.getDefaultValue();
   }, []);
 
   return (

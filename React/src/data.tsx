@@ -1,12 +1,12 @@
 
 interface MyCustomType {
   ID: number;
-  Name: String;
+  Name: string;
 }
 export interface SampleItem {
   ID: number;
   DynamicValue: string | number | MyCustomType | Date | boolean | null;
-  Type: String;
+  Type: string;
 }
 
 const sampleData: SampleItem[] = [
@@ -40,6 +40,10 @@ const sampleData: SampleItem[] = [
   },
 ];
 
+let counter = sampleData.length + 1;
+const defaultValue = 'default string';
+const defaultType = 'String';
+
 const myDropdownData: MyCustomType[] = [
   {
     ID: 0,
@@ -57,6 +61,15 @@ const service = {
   },
   getDropDownData(): MyCustomType[] {
     return myDropdownData;
+  },
+  getDefaultValue(): string {
+    return defaultValue;
+  },
+  getDefaultType(): string {
+    return defaultType;
+  },
+  getNextId(): number {
+    return counter++;
   },
 };
 

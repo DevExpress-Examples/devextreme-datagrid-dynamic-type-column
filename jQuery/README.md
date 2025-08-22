@@ -9,7 +9,7 @@ npm install
 ```
 
 This project includes:
-- DevExtreme 24.2.3
+- DevExtreme 25.1.3
 - jQuery 3.7.1
 - lite-server for development
 - ESLint, Stylelint, and Prettier for code quality
