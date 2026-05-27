@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ColumnCellTemplateData } from 'devextreme/ui/data_grid';
-import type { SampleItem } from '../data';
+import type { SampleItem } from '../data.tsx';
 
 function CellComponent({ data }: { data: ColumnCellTemplateData<SampleItem, number> }): React.ReactElement {
   const { data: rowData, value } = data;

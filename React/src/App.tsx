@@ -3,9 +3,9 @@ import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 import React, { useCallback } from 'react';
 import DataGrid, { Editing, Column, Lookup } from 'devextreme-react/data-grid';
 import type { InitNewRowEvent } from 'devextreme/ui/data_grid';
-import service, { type SampleItem } from './data';
-import DynamicEditCellComponent from './components/DynamicEditCellComponent';
-import CellComponent from './components/CellComponent';
+import service, { type SampleItem } from './data.tsx';
+import DynamicEditCellComponent from './components/DynamicEditCellComponent.tsx';
+import CellComponent from './components/CellComponent.tsx';
 
 const typeList = ['String', 'Number', 'Date', 'Boolean', 'MyCustomType'];
 const ds = service.getData();

@@ -14,7 +14,7 @@ import type { ValueChangedEvent as SelectValueChanged } from 'devextreme/ui/sele
 import DataSource from 'devextreme/data/data_source';
 import React, { useCallback } from 'react';
 import type { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
-import service, { type SampleItem } from '../data';
+import service, { type SampleItem } from '../data.tsx';
 
 const dataSource = new DataSource({
   store: {
