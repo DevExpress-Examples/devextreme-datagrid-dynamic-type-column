@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { InitNewRowEvent } from 'devextreme/ui/data_grid';
+import { DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
+import { DynamicEditComponentComponent } from './dynamic-edit-component/dynamic-edit-component.component';
 import {
   GridDataModel, DynamicType, MyCustomType, Service,
 } from './app.service';
 
 @Component({
   selector: 'app-root',
+  imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule, DynamicEditComponentComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

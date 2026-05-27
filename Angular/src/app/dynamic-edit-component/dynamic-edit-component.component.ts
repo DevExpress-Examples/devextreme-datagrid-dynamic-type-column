@@ -6,6 +6,7 @@ import dxDateBox from 'devextreme/ui/date_box';
 import dxCheckBox from 'devextreme/ui/check_box';
 import dxSelectBox from 'devextreme/ui/select_box';
 import { DynamicType, MyCustomType, Service } from '../app.service';
+import { DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 
 type EditorComponent =
   | dxTextBox
@@ -16,6 +17,7 @@ type EditorComponent =
 
 @Component({
   selector: 'dynamic-edit-component',
+  imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule],
   templateUrl: './dynamic-edit-component.component.html',
   styleUrls: ['./dynamic-edit-component.component.css'],
 })
