@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
 import dxTextBox from 'devextreme/ui/text_box';
 import dxNumberBox from 'devextreme/ui/number_box';
@@ -17,7 +18,7 @@ type EditorComponent =
 
 @Component({
   selector: 'dynamic-edit-component',
-  imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule],
+  imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule, NgTemplateOutlet],
   templateUrl: './dynamic-edit-component.component.html',
   styleUrls: ['./dynamic-edit-component.component.css'],
 })
