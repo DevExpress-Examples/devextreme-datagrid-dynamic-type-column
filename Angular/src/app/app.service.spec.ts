@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { Service } from './app.service';
 
 describe('AppService', () => {
-  let service: Service; // eslint-disable-line @typescript-eslint/init-declarations
+  let service: Service;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
