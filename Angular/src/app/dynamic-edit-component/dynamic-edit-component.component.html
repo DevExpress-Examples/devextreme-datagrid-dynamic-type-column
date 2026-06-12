@@ -16,7 +16,7 @@
 
 <ng-template #textBoxTemplate>
   <dx-text-box
-    [value]="cellInfo.data?.DynamicValue"
+    [value]="$safeNavigationMigration(cellInfo.data?.DynamicValue)"
     (onValueChanged)="handleValueChanged($event)"
   >
   </dx-text-box>
@@ -24,7 +24,7 @@
 
 <ng-template #numberBoxTemplate>
   <dx-number-box
-    [value]="cellInfo.data?.DynamicValue"
+    [value]="$safeNavigationMigration(cellInfo.data?.DynamicValue)"
     (onValueChanged)="handleValueChanged($event)"
   >
   </dx-number-box>
@@ -32,7 +32,7 @@
 
 <ng-template #dateBoxTemplate>
   <dx-date-box
-    [value]="cellInfo.data?.DynamicValue"
+    [value]="$safeNavigationMigration(cellInfo.data?.DynamicValue)"
     (onValueChanged)="handleValueChanged($event)"
   >
   </dx-date-box>
@@ -40,7 +40,7 @@
 
 <ng-template #checkBoxTemplate>
   <dx-check-box
-    [value]="cellInfo.data?.DynamicValue"
+    [value]="$safeNavigationMigration(cellInfo.data?.DynamicValue)"
     (onValueChanged)="handleValueChanged($event)"
   >
   </dx-check-box>
@@ -51,7 +51,7 @@
     [dataSource]="myDropdownData"
     valueExpr="ID"
     displayExpr="Name"
-    [value]="cellInfo.value?.ID"
+    [value]="$safeNavigationMigration(cellInfo.value?.ID)"
     (onValueChanged)="handleValueChanged($event)"
   >
   </dx-select-box>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { InitNewRowEvent } from 'devextreme/ui/data_grid';
 import { DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule } from 'devextreme-angular';
 import { DynamicEditComponentComponent } from './dynamic-edit-component/dynamic-edit-component.component';
@@ -10,6 +10,7 @@ import {
   selector: 'app-root',
   imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule, DynamicEditComponentComponent],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {

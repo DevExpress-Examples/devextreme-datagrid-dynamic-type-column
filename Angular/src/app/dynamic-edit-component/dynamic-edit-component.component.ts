@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { ColumnEditCellTemplateData } from 'devextreme/ui/data_grid';
 import dxTextBox from 'devextreme/ui/text_box';
@@ -20,6 +20,7 @@ type EditorComponent =
   selector: 'dynamic-edit-component',
   imports: [DxCheckBoxModule, DxDataGridModule, DxDateBoxModule, DxNumberBoxModule, DxSelectBoxModule, DxTextBoxModule, NgTemplateOutlet],
   templateUrl: './dynamic-edit-component.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./dynamic-edit-component.component.css'],
 })
 export class DynamicEditComponentComponent {
